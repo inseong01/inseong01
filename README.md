@@ -8,22 +8,26 @@
   | <a href="README_EN.md"><span>EN</span></a> | 
   </p> 
   
-  <h4 align="left">나의 프로젝트</h4>
+  <h4 align="left">프로젝트 목록</h4>
   <table align="center"> 
     <tr> 
       <td>
         <a href="https://github.com/inseong01/chatBot">Chatbot</a>
-         - Supabase를 이용한 챗봇 서비스
+         - Supabase를 활용한 관리자 일대일 채팅 겸 챗봇 서비스
       </td> 
       <td>
         <a href="https://github.com/inseong01/typing-practice">Typing Practice</a> 
-        - TOP100 차트에서 음악 골라서 타자 연습
+        - 네이버 VIBE TOP100 차트에서 본인이 선택한 음악으로 타자 연습
       </td> 
     </tr> 
     <tr> 
       <td>
         <a href="https://github.com/inseong01/login">Login</a> 
-        - Redis와 Firebase를 이용한 세션 ID 인증 로그인
+        - Redis와 Firebase를 활용한 세션 식별자 인증 로그인 기능
+      </td> 
+      <td>
+        <a href="https://github.com/inseong01/QR-order-customer">QR-order-customer</a> 
+        - 매장에서 QR 코드로 음식을 주문하는 고객 전용 서비스 
       </td> 
     </tr> 
   </table>

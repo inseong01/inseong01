@@ -11,11 +11,24 @@
   <h4 align="left">My Projects</h4>
     <table align="center">
         <tr>
-            <td><a href="https://github.com/inseong01/chatBot">Chatbot</a> - Response client queries, with Supabase</td>
-            <td><a href="https://github.com/inseong01/typing-practice">Typing practice</a> - Type along to music what you choose in TOP100 chart</td>
+            <td>
+                <a href="https://github.com/inseong01/chatBot">Chatbot</a> 
+                - One-on-One Admin Chat and Chatbot Service Using Supabase
+            </td>
+            <td>
+                <a href="https://github.com/inseong01/typing-practice">Typing practice</a> 
+                - Practice typing with music you select from the NAVER VIBE TOP100 chart
+            </td>
         </tr>
         <tr>
-            <td><a href="https://github.com/inseong01/login">Login</a> - Session ID authentication, with Redis and Firebase</td>
+            <td>
+                <a href="https://github.com/inseong01/login">Login</a> 
+                - Session identifier authentication login feature using Redis and Firebase
+            </td>
+            <td>
+                <a href="https://github.com/inseong01/QR-order-customer">QR-order-customer</a>
+                - Customer service for ordering food via QR codes in the store
+            </td>
         </tr>
     </table>
 <div>
