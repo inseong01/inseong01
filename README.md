@@ -12,6 +12,16 @@
   <table align="center"> 
     <tr> 
       <td>
+        <a href="https://github.com/inseong01/QR-order-customer">QR-order-customer</a> 
+        - 매장에서 QR 코드로 음식을 주문하는 고객 전용 서비스 
+      </td> 
+      <td>
+        <a href="https://github.com/inseong01/QR-order-admin">QR-order-admin</a> 
+        - QR 주문을 처리하고 매장을 사용자 맞춤으로 설정하는 관리자 전용 서비스
+      </td> 
+    </tr> 
+    <tr> 
+      <td>
         <a href="https://github.com/inseong01/chatBot">Chatbot</a>
          - Supabase를 활용한 관리자 일대일 채팅 겸 챗봇 서비스
       </td> 
@@ -26,8 +36,7 @@
         - Redis와 Firebase를 활용한 세션 식별자 인증 로그인 기능
       </td> 
       <td>
-        <a href="https://github.com/inseong01/QR-order-customer">QR-order-customer</a> 
-        - 매장에서 QR 코드로 음식을 주문하는 고객 전용 서비스 
+        <a href=""></a> 
       </td> 
     </tr> 
   </table>

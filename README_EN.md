@@ -10,6 +10,16 @@
 
   <h4 align="left">My Projects</h4>
     <table align="center">
+        <tr> 
+            <td>
+                <a href="https://github.com/inseong01/QR-order-customer">QR-order-customer</a> 
+                - Customer service for ordering food via QR codes in the store
+            </td> 
+            <td>
+                <a href="https://github.com/inseong01/QR-order-admin">QR-order-admin</a> 
+                - Administrator service for handling QR orders and customizing stores for users.
+            </td> 
+        </tr> 
         <tr>
             <td>
                 <a href="https://github.com/inseong01/chatBot">Chatbot</a> 
@@ -26,8 +36,7 @@
                 - Session identifier authentication login feature using Redis and Firebase
             </td>
             <td>
-                <a href="https://github.com/inseong01/QR-order-customer">QR-order-customer</a>
-                - Customer service for ordering food via QR codes in the store
+                <a href=""></a>
             </td>
         </tr>
     </table>
