@@ -6,8 +6,8 @@ on:
   push:
     branches:
       - '**' # 모든 브랜치 적용
-    paths:
-      - '**/*.md'
+    #paths:
+    # - '**/*.md'
 
 jobs:
   check-work-log-file:
