@@ -19,7 +19,7 @@ jobs:
         id: t1
         uses: Kaven-Universe/github-action-current-date-time@v1
         with:
-          format: 'YY_MM_DD'
+          format: 'YYYY.MM.DD.'
           timezone-offset: -540
 
       - name: Output 1
@@ -33,7 +33,7 @@ jobs:
         id: t2
         uses: Kaven-Universe/github-action-current-date-time@v1
         with:
-          format: 'YY_MM_DD'
+          format: 'YY.MM.DD.'
           timezone-offset: -540
 
       - name: Output 2
@@ -47,7 +47,7 @@ jobs:
         id: t3
         uses: Kaven-Universe/github-action-current-date-time@v1
         with:
-          format: 'YYYY_MM_DD'
+          format: 'YYYY.MM.DD.'
           timezone-offset: -540
 
       - name: Output 3
