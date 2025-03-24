@@ -1,0 +1,58 @@
+name: Check work log
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - '**' # 모든 브랜치 적용
+    paths:
+      - '**/*.md'
+
+jobs:
+  check-work-log-file:
+    if: github.repository == 'inseong/profile'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get current date 1
+        id: t1
+        uses: Kaven-Universe/github-action-current-date-time@v1
+        with:
+          format: 'YY_MM_DD'
+          timezone-offset: -540
+
+      - name: Output 1
+        run: |
+          echo "The time was ${{ steps.t1.outputs.time }}"
+          echo "The year was ${{ steps.t1.outputs.year }}"
+          echo "The month was ${{ steps.t1.outputs.month }}"
+          echo "The day was ${{ steps.t1.outputs.day }}"
+
+      - name: Get current date 2 (KST, UTC+9)
+        id: t2
+        uses: Kaven-Universe/github-action-current-date-time@v1
+        with:
+          format: 'YY_MM_DD'
+          timezone-offset: -540
+
+      - name: Output 2
+        run: |
+          echo "The time was ${{ steps.t2.outputs.time }}"
+          echo "The year was ${{ steps.t2.outputs.year }}"
+          echo "The month was ${{ steps.t2.outputs.month }}"
+          echo "The day was ${{ steps.t2.outputs.day }}"
+
+      - name: Get current date 3 (KST, UTC+9, Full Year)
+        id: t3
+        uses: Kaven-Universe/github-action-current-date-time@v1
+        with:
+          format: 'YYYY_MM_DD'
+          timezone-offset: -540
+
+      - name: Output 3
+        run: |
+          echo "The time was ${{ steps.t3.outputs.time }}"
+          echo "The year was ${{ steps.t3.outputs.year }}"
+          echo "The month was ${{ steps.t3.outputs.month }}"
+          echo "The day was ${{ steps.t3.outputs.day }}"
