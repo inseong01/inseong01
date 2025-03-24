@@ -1,18 +1,52 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: Check work log
+
+on:
+  push:
+    branches:
+      - '**'
+    paths:
+      - '**/*.md'
+
 jobs:
-  Explore-GitHub-Actions:
+  check-work-log-file:
+    if: github.repository == 'inseong/profile'
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
+      - name: Get current date 1
+        uses: Kaven-Universe/github-action-current-date-time@v1
+        with:
+          format: 'YY.MM.DD.'
+
+      - name: Output 1
         run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+          echo "The time was ${{ steps.t1.outputs.time }}"
+          echo "The year was ${{ steps.t1.outputs.year }}"
+          echo "The month was ${{ steps.t1.outputs.month }}"
+          echo "The day was ${{ steps.t1.outputs.day }}"
+
+      - name: Get current date 2
+        uses: Kaven-Universe/github-action-current-date-time@v1
+        with:
+          format: 'YY.MM.DD.'
+          timezone-offset: -540
+
+      - name: Output 2
+        run: |
+          echo "The time was ${{ steps.t2.outputs.time }}"
+          echo "The year was ${{ steps.t2.outputs.year }}"
+          echo "The month was ${{ steps.t2.outputs.month }}"
+          echo "The day was ${{ steps.t2.outputs.day }}"
+
+      - name: Get current date 3
+        uses: Kaven-Universe/github-action-current-date-time@v1
+        with:
+          format: 'YYYY.MM.DD.'
+          timezone-offset: -540
+
+      - name: Output 2
+        run: |
+          echo "The time was ${{ steps.t3.outputs.time }}"
+          echo "The year was ${{ steps.t3.outputs.year }}"
+          echo "The month was ${{ steps.t3.outputs.month }}"
+          echo "The day was ${{ steps.t3.outputs.day }}"
