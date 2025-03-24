@@ -11,7 +11,7 @@ on:
 
 jobs:
   check-work-log-file:
-    if: github.repository == 'inseong/profile'
+    if: github.repository == 'inseong/inseong01'
     runs-on: ubuntu-latest
 
     steps:
