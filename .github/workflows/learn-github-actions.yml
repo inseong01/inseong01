@@ -22,7 +22,7 @@ jobs:
 
       - name: Set current date
         run: |
-          YEAR_SHORT=$(echo "${{ steps.t1.outputs.year }}" | cut -c3-4)
+          YEAR_SHORT=$(echo ${{ steps.t1.outputs.year }} | cut -c3-4)
           MONTH=$(expr ${{ steps.t1.outputs.month }} + 0)
           DAY=$(expr ${{ steps.t1.outputs.day }} + 0)
 
