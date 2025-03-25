@@ -3,13 +3,9 @@ name: Check work log
 run-name: ${{github.repository}} is running
 
 on:
-  # workflow_dispatch:
-
   push:
     branches:
       - '**' # 모든 브랜치 적용
-    #paths:
-    # - '**/*.md'
 
 jobs:
   check-work-log-file:
@@ -17,34 +13,41 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get current date 1
+      - name: Get current date
         id: t1
         uses: Kaven-Universe/github-action-current-date-time@v1
         with:
           format: 'YYYY.MM.DD.'
           timezone-offset: -540
 
-      - name: Output 1
+      - name: Set current date
         run: |
-          echo "The time was ${{ steps.t1.outputs.time }}"
-          echo "The year was ${{ steps.t1.outputs.year }}"
-          echo "The month was ${{ steps.t1.outputs.month }}"
-          echo "The day was ${{ steps.t1.outputs.day }}"
+          YEAR_SHORT=$(echo "${{ steps.t1.outputs.year }}" | cut -c3-4)
+          MONTH=$(expr ${{ steps.t1.outputs.month }} + 0)
+          DAY=$(expr ${{ steps.t1.outputs.day }} + 0)
 
-      - name: Get current date 2
-        id: t2
-        uses: Kaven-Universe/github-action-current-date-time@v1
-        with:
-          format: 'YYYY.MM.DD.'
-          timezone-offset: -540
+          echo "YEAR_SHORT" >> $GITHUB_ENV
+          echo "MONTH" >> $GITHUB_ENV
+          echo "DAY" >> $GITHUB_ENV
 
-      - name: Output 2
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Find work log txt file
         run: |
-          YEAR_SHORT=$(echo "${{ steps.t2.outputs.year }}" | cut -c3-4)
-          MONTH=$(expr ${{ steps.t2.outputs.month }} + 0)
-          DAY=$(expr ${{ steps.t2.outputs.day }} + 0)
+          FILE_PATH=$(find . -type f -name "작업일지.txt" | head -n 1)
+          if [ -f "$FILE_PATH" ]; then
+            echo "WORK_LOG_FILE=$FILE_PATH" >> $GITHUB_ENV
+          else
+            echo "업로드된 파일 내 작업일지가 존재하지 않습니다."
+            exit 1
+          fi
 
-          echo "The time was ${{ steps.t2.outputs.time }}" 
-          echo "The year was $YEAR_SHORT"
-          echo "The month was $MONTH"
-          echo "The day was $DAY"
+      - name: Check work log
+        run: |
+          if grep -q "$YEAR_SHORT.$MONTH.$DAY." "$FILE_PATH"; then
+            echo "$YEAR_SHORT.$MONTH.$DAY. 작업내역이 작성되어 있습니다."
+          else 
+            echo "$YEAR_SHORT.$MONTH.$DAY. 작업내역이 작성되어 있지 않습니다."
+            exit 1
+          fi
