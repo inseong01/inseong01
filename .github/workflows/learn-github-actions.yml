@@ -39,15 +39,15 @@ jobs:
           if [ -f "$FILE_PATH" ]; then
             echo "WORK_LOG_FILE=$FILE_PATH" >> $GITHUB_ENV
           else
-            echo "업로드된 파일 내 작업일지가 존재하지 않습니다."
+            echo "Error: Could not find 작업일지.txt file."
             exit 1
           fi
 
       - name: Check work log
         run: |
           if grep -q "$YEAR_SHORT.$MONTH.$DAY." "$FILE_PATH"; then
-            echo "$YEAR_SHORT.$MONTH.$DAY. 작업내역이 작성되어 있습니다."
+            echo "$YEAR_SHORT.$MONTH.$DAY. work log was written."
           else 
-            echo "$YEAR_SHORT.$MONTH.$DAY. 작업내역이 작성되어 있지 않습니다."
+            echo "$YEAR_SHORT.$MONTH.$DAY. work log was not written."
             exit 1
           fi
