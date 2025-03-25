@@ -22,13 +22,13 @@ jobs:
 
       - name: Set current date
         run: |
-          YEAR_SHORT=$(${{ steps.t1.outputs.year }} | cut -c3-4)
+          YEAR_SHORT=$(echo "${{ steps.t1.outputs.year }}" | cut -c3-4)
           MONTH=$(expr ${{ steps.t1.outputs.month }} + 0)
           DAY=$(expr ${{ steps.t1.outputs.day }} + 0)
 
-          echo "YEAR_SHORT" >> $GITHUB_ENV
-          echo "MONTH" >> $GITHUB_ENV
-          echo "DAY" >> $GITHUB_ENV
+          echo "YEAR_SHORT=$YEAR_SHORT" >> $GITHUB_ENV
+          echo "MONTH=$MONTH" >> $GITHUB_ENV
+          echo "DAY=$DAY" >> $GITHUB_ENV
 
       - name: Checkout repository
         uses: actions/checkout@v3
