@@ -13,14 +13,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get current date
+      - name: Run current-date-time@v1
         id: t1
         uses: Kaven-Universe/github-action-current-date-time@v1
         with:
           format: 'YYYY.MM.DD.'
           timezone-offset: -540
 
-      - name: Set current date
+      - name: Setup current date
         run: |
           YEAR_SHORT=$(echo "${{ steps.t1.outputs.year }}" | cut -c3-4)
           MONTH=$(expr ${{ steps.t1.outputs.month }} + 0)
@@ -29,6 +29,7 @@ jobs:
           echo "YEAR_SHORT=$YEAR_SHORT" >> $GITHUB_ENV
           echo "MONTH=$MONTH" >> $GITHUB_ENV
           echo "DAY=$DAY" >> $GITHUB_ENV
+          echo "$YEAR_SHORT.$MONTH.$DAY."
 
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -49,5 +50,4 @@ jobs:
             echo "$YEAR_SHORT.$MONTH.$DAY. work log was written."
           else 
             echo "$YEAR_SHORT.$MONTH.$DAY. work log was not written."
-            exit 1
           fi
