@@ -46,8 +46,8 @@ jobs:
 
       - name: Check work log
         run: |
-          if grep -q "$YEAR_SHORT.$MONTH.$DAY." "$FILE_PATH"; then
-            echo "$YEAR_SHORT.$MONTH.$DAY. work log was written."
-          else 
+          if ! grep -q "$YEAR_SHORT.$MONTH.$DAY." "$FILE_PATH"; then
             echo "$YEAR_SHORT.$MONTH.$DAY. work log was not written."
+            exit 1
           fi
+          echo "$YEAR_SHORT.$MONTH.$DAY. work log was written."
