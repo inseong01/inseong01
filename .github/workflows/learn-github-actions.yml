@@ -20,7 +20,7 @@ jobs:
         run: |
           git fetch origin
 
-          echo "PR Branch: ${{ github.head_ref }}"  # PR을 보낸 브랜치
+          echo "PR Branch: ${{ github.head_ref }}"  # PR 브랜치
           echo "Base Branch: ${{ github.base_ref }}"  # 기준 브랜치
 
       - name: Find package.json in current branch
