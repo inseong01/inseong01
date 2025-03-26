@@ -1,4 +1,4 @@
-name: Check work log
+name: Check package version
 
 run-name: ${{github.repository}} is running
 
@@ -16,7 +16,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Find package.json
+      - name: Fetch latest changes
+        run: git fetch origin
+
+      - name: Find current package.json
         run: |
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
           COMMIT_HASH=$(git log -n 1 --pretty=format:"%H" "$FILE_PATH")
@@ -36,7 +39,7 @@ jobs:
         run: |
           git checkout HEAD~1 -- $(find . -type f -name "package.json" | head -n 1)
 
-      - name: Find package.json
+      - name: Find previous package.json
         run: |
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
           COMMIT_HASH=$(git log -n 1 --pretty=format:"%H" "$FILE_PATH")
