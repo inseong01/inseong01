@@ -21,6 +21,9 @@ jobs:
 
       - name: Find merge branch package.json
         run: |
+          CURRENT_BRANCH=$(git branch --show-current)
+          echo "CURRENT_BRANCH: $CURRENT_BRANCH"
+
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
           COMMIT_HASH=$(git log -n 1 --pretty=format:"%H" "$FILE_PATH")
 
@@ -41,6 +44,9 @@ jobs:
 
       - name: Find PR branch package.json
         run: |
+          CURRENT_BRANCH=$(git branch --show-current)
+          echo "CURRENT_BRANCH: $CURRENT_BRANCH"
+
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
           COMMIT_HASH=$(git log -n 1 --pretty=format:"%H" "$FILE_PATH")
 
