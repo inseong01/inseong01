@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Fetch latest changes
-        run: git fetch origin
-
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Fetch latest changes
+        run: git fetch origin
 
       - name: Find merge branch package.json
         run: |
