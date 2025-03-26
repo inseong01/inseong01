@@ -13,13 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
       - name: Fetch latest changes
         run: git fetch origin
 
-      - name: Find current package.json
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Find merge branch package.json
         run: |
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
           COMMIT_HASH=$(git log -n 1 --pretty=format:"%H" "$FILE_PATH")
@@ -35,11 +35,11 @@ jobs:
           echo "CUR_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
           echo "Succeeded"
 
-      - name: Checkout previous package.json
+      - name: Checkout PR branch package.json
         run: |
           git checkout HEAD~1 -- $(find . -type f -name "package.json" | head -n 1)
 
-      - name: Find previous package.json
+      - name: Find PR branch package.json
         run: |
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
           COMMIT_HASH=$(git log -n 1 --pretty=format:"%H" "$FILE_PATH")
