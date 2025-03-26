@@ -23,7 +23,7 @@ jobs:
           echo "PR Branch: ${{ github.head_ref }}"  # PR을 보낸 브랜치
           echo "Base Branch: ${{ github.base_ref }}"  # 기준 브랜치
 
-      - name: Find merge branch package.json
+      - name: Find package.json in merge branch
         run: |
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
           COMMIT_HASH=$(git log -n 1 --pretty=format:"%H" "$FILE_PATH")
@@ -35,11 +35,8 @@ jobs:
 
       - name: Find package.json in the PR branch
         run: |
-          # PR에서 변경된 파일을 찾기 위해 PR 브랜치에서 변경된 파일 목록을 확인
           CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...origin/${{ github.head_ref }})
-          echo "Changed files in the PR: $CHANGED_FILES"
 
-          # package.json이 변경되었으면 파일 경로 추출
           if echo "$CHANGED_FILES" | grep -q "package.json"; then
             FILE_PATH="package.json"
             echo "package.json file has been modified in the PR"
