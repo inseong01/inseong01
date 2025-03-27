@@ -16,38 +16,45 @@ jobs:
       - name: Checkout Head
         uses: actions/checkout@v3
 
-      - name: Get package.json file in Head branch
+      - name: Get file in Head branch
         env:
           GH_TOKEN: ${{ github.token }}
           HEAD_SHA: ${{ github.head_ref }} # PR 브랜치
           BASE_SHA: ${{ github.base_ref }} # 기준 브랜치
         run: |
-          # FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
-          FILE_PATHS=$(git diff --name-only $BASE_SHA $HEAD_SHA | grep "package.json$" || echo "")
+          FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
 
-          # filter out files that are not markdown
-          FILE_PATH=$(echo "${FILE_PATH}" | egrep -i "package.json$" | xargs)
+          if [ -z "$FILE_PATH" ]; then
+            echo "File doesn't exist"
+            exit 1
+          fi
 
           echo "FILE_PATH: $FILE_PATH"
-          echo "CURRENT_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
+          echo "HEAD_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
           echo "Succeeded"
 
       - name: Checkout Base
         run: |
+          echo "BASE_SHA: $BASE_SHA"
           git checkout $BASE_SHA
 
-      - name: Get package.json file in the Base branch
+      - name: Get file in the Base branch
         run: |
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
 
+          if [ -z "$FILE_PATH" ]; then
+            echo "File doesn't exist"
+            exit 1
+          fi
+
           echo "FILE_PATH: $FILE_PATH"
-          echo "PREV_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
+          echo "BASE_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
           echo "Succeeded"
 
-      - name: Compare package.json version
+      - name: Compare file version
         run: |
-          CUR_VERSION=$(jq -r '.version' $PREV_PACKAGE_JSON_PATH)
-          PREV_VERSION=$(jq -r '.version' $CURRENT_PACKAGE_JSON_PATH)
+          CUR_VERSION=$(jq -r '.version' $BASE_PACKAGE_JSON_PATH)
+          PREV_VERSION=$(jq -r '.version' $HEAD_PACKAGE_JSON_PATH)
 
           echo "CUR_VERSION: $CUR_VERSION"
           echo "PREV_VERSION: $PREV_VERSION"
