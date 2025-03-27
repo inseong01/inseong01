@@ -38,8 +38,8 @@ jobs:
         run: |
           echo "BASE_REF: $BASE_REF"
 
-          git fetch origin $BASE_REF --depth=1
-          git show $BASE_REF:package.json > package.base.json
+          git fetch origin "$BASE_REF" --depth=1
+          git show "$BASE_REF":package.json > package.base.json
 
           echo "Current Branch: ${{ github.ref_name }}"
           echo "BASE_PACKAGE_JSON_PATH=package.base.json" >> $GITHUB_ENV
