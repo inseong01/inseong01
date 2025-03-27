@@ -35,8 +35,8 @@ jobs:
         env:
           BASE_REF: ${{ github.base_ref }} # 기준 브랜치
         run: |
-          git fetch origin $BASE_SHA:$BASE_SHA || git fetch origin $BASE_SHA
-          git checkout $BASE_SHA
+          git fetch origin $BASE_SHA --depth=1
+          git checkout --force $BASE_SHA
 
           echo "BASE_REF: $BASE_REF"
 
