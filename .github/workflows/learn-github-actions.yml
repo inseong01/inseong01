@@ -23,15 +23,12 @@ jobs:
           BASE_SHA: ${{ github.base_ref }} # 기준 브랜치
         run: |
           # FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
-          FILE_PATH=$(gh api repos/${{ github.repository }}/compare/${BASE_SHA}...${HEAD_SHA} \
-          --jq '.files | .[] | select(.status|IN("added", "modified", "renamed", "copied")) | .filename')
-          COMMIT_HASH=$(git log -n 1 --pretty=format: "%H" -- "$FILE_PATH")
+          FILE_PATHS=$(git diff --name-only $BASE_SHA $HEAD_SHA | grep "package.json$" || echo "")
 
           # filter out files that are not markdown
           FILE_PATH=$(echo "${FILE_PATH}" | egrep -i "package.json$" | xargs)
 
           echo "FILE_PATH: $FILE_PATH"
-          echo "COMMIT_HASH: $COMMIT_HASH"
           echo "CURRENT_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
           echo "Succeeded"
 
@@ -42,10 +39,8 @@ jobs:
       - name: Get package.json file in the Base branch
         run: |
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
-          COMMIT_HASH=$(git log -n 1 --pretty=format:"%H" "$FILE_PATH")
 
           echo "FILE_PATH: $FILE_PATH"
-          echo "COMMIT_HASH: $COMMIT_HASH"
           echo "PREV_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
           echo "Succeeded"
 
