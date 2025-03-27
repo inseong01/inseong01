@@ -2,5 +2,7 @@
   - '작업일지.txt' 작성 확인 테스트 작성
 
 25.3.26.
-  - 'package.json' 버전 작성 확인 테스트 작성
+  - 'package.json' 버전 작성 확인 테스트
+
+<--- CUR_VERSION, PREV_VERSION 인식 오류 --->
   
