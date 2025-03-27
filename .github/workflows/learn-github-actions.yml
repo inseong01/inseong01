@@ -18,6 +18,7 @@ jobs:
 
       - name: Get package.json file in Head branch
         env:
+          GH_TOKEN: ${{ github.token }}
           HEAD_SHA: ${{ github.head_ref }} # PR 브랜치
           BASE_SHA: ${{ github.base_ref }} # 기준 브랜치
         run: |
