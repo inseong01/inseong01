@@ -33,10 +33,13 @@ jobs:
           echo "HEAD_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
           echo "Succeeded"
 
+          echo "BASE_SHA: $BASE_SHA"
+          echo "HEAD_SHA: $HEAD_SHA"
+
       - name: Checkout Base
         run: |
           echo "BASE_SHA: $BASE_SHA"
-          git checkout $BASE_SHA
+          git checkout "$BASE_SHA"
 
       - name: Get file in the Base branch
         run: |
@@ -46,6 +49,9 @@ jobs:
             echo "File doesn't exist"
             exit 1
           fi
+
+          echo "BASE_SHA: $BASE_SHA"
+          echo "HEAD_SHA: $HEAD_SHA"
 
           echo "FILE_PATH: $FILE_PATH"
           echo "BASE_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
