@@ -25,7 +25,7 @@ jobs:
           # FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
           FILE_PATH=$(gh api repos/${{ github.repository }}/compare/${BASE_SHA}...${HEAD_SHA} \
           --jq '.files | .[] | select(.status|IN("added", "modified", "renamed", "copied")) | .filename')
-          COMMIT_HASH=$(git log -n 1 --pretty=format: "%H" "$FILE_PATH")
+          COMMIT_HASH=$(git log -n 1 --pretty=format: "%H" -- "$FILE_PATH")
 
           # filter out files that are not markdown
           FILE_PATH=$(echo "${FILE_PATH}" | egrep -i "package.json$" | xargs)
