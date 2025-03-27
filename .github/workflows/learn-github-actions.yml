@@ -27,6 +27,7 @@ jobs:
             exit 1
           fi
 
+          echo "Current Branch: ${{ github.ref_name }}"
           echo "FILE_PATH: $FILE_PATH"
           echo "HEAD_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
           echo "Succeeded"
@@ -49,6 +50,7 @@ jobs:
             exit 1
           fi
 
+          echo "Current Branch: ${{ github.ref_name }}"
           echo "FILE_PATH: $FILE_PATH"
           echo "BASE_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
           echo "Succeeded"
