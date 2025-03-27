@@ -36,24 +36,11 @@ jobs:
         env:
           BASE_REF: ${{ github.base_ref }} # 기준 브랜치
         run: |
-          git fetch origin $BASE_SHA --depth=1
-          git checkout --force $BASE_SHA
-
-          echo "BASE_REF: $BASE_REF"
-
-      - name: Get file in the Base branch
-        run: |
-          FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
-
-          if [ -z "$FILE_PATH" ]; then
-            echo "File doesn't exist"
-            exit 1
-          fi
+          git fetch origin $BASE_REF --depth=1
+          git show $BASE_REF:package.json > package.base.json
 
           echo "Current Branch: ${{ github.ref_name }}"
-          echo "FILE_PATH: $FILE_PATH"
-          echo "BASE_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
-          echo "Succeeded"
+          echo "BASE_PACKAGE_JSON_PATH=package.base.json" >> $GITHUB_ENV
 
       - name: Compare file version
         run: |
