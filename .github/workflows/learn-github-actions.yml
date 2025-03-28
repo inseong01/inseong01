@@ -21,13 +21,14 @@ jobs:
       - name: Get file in Head branch
         run: |
           FILE_PATH=$(find . -type f -name "package.json")
+          cp "$FILE_PATH" head_package.json 
           COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
 
-          cat "$FILE_PATH"
+          cat $FILE_PATH
 
           echo "FILE_PATH: $FILE_PATH"
           echo "FILE_PATH HASH: $COMMIT_HASH"
-          echo "HEAD_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
+          echo "HEAD_PACKAGE_JSON_PATH=head_package.json" >> $GITHUB_ENV
           echo "Succeeded"
 
       - name: Checkout Base
@@ -40,7 +41,7 @@ jobs:
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
           COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
 
-          cat "$FILE_PATH"
+          cat $FILE_PATH
 
           echo "FILE_PATH: $FILE_PATH"
           echo "FILE_PATH HASH: $COMMIT_HASH"
