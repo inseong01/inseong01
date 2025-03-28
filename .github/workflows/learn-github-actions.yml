@@ -16,7 +16,7 @@ jobs:
       - name: Checkout Head
         uses: actions/checkout@v3
         with:
-          repository: ${{ github.head_ref }}
+          repository: '${{ github.actor	}}/${{ github.head_ref }}'
           sparse-checkout: .
 
       - name: Get file in Head branch
@@ -37,7 +37,7 @@ jobs:
       - name: Checkout Base
         uses: actions/checkout@v3
         with:
-          repository: ${{ github.base_ref }}
+          repository: '${{ github.actor	}}/${{ github.base_ref }}'
           sparse-checkout: .
 
       - name: Get file in Base branch
