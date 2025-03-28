@@ -24,7 +24,7 @@ jobs:
         run: |
           echo "HEAD_REF: $HEAD_REF"
           # git fetch origin "$HEAD_REF"
-          git checkout "$SHA"
+          git checkout "$HEAD_REF"
 
           FILE_PATH=$(find . -type f -name "package.json")
           COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
