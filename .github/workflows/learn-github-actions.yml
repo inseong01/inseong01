@@ -21,14 +21,16 @@ jobs:
       - name: Get file in Head branch
         run: |
           FILE_PATH=$(find . -type f -name "package.json")
-          cp "$FILE_PATH" head_package.json 
-          COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
+          NEW_PATH="$(dirname "$FILE_PATH")/head_package.json"
+          mv "$FILE_PATH" ""$NEW_PATH"" 
 
-          cat head_package.json
+          COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$NEW_PATH")
 
-          echo "FILE_PATH: $FILE_PATH"
+          cat $NEW_PATH
+
+          echo "FILE_PATH: $NEW_PATH"
           echo "FILE_PATH HASH: $COMMIT_HASH"
-          echo "HEAD_PACKAGE_JSON_PATH=head_package.json" >> $GITHUB_ENV
+          echo "HEAD_PACKAGE_JSON_PATH=NEW_PATH" >> $GITHUB_ENV
           echo "Succeeded"
 
       - name: Checkout Base
@@ -39,14 +41,16 @@ jobs:
       - name: Get file in Base branch
         run: |
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
-          cp "$FILE_PATH" base_package.json 
-          COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
+          NEW_PATH="$(dirname "$FILE_PATH")/base_package.json"
+          mv "$FILE_PATH" ""$NEW_PATH"" 
 
-          cat base_package.json
+          COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$NEW_PATH")
 
-          echo "FILE_PATH: $FILE_PATH"
+          cat $NEW_PATH
+
+          echo "FILE_PATH: $NEW_PATH"
           echo "FILE_PATH HASH: $COMMIT_HASH"
-          echo "BASE_PACKAGE_JSON_PATH=base_package.json" >> $GITHUB_ENV
+          echo "BASE_PACKAGE_JSON_PATH=$NEW_PATH" >> $GITHUB_ENV
 
       - name: Compare file version
         run: |
