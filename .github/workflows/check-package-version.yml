@@ -24,7 +24,7 @@ jobs:
 
           FILE_COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
 
-          cat $FILE_PATH
+          cat "$FILE_PATH"
 
           echo "FILE_PATH: $FILE_PATH"
           echo "FILE_COMMIT_HASH: $FILE_COMMIT_HASH"
@@ -40,15 +40,12 @@ jobs:
         run: |
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
 
-          if [ -z "$FILE_PATH" ]; then
+          if [ -n "$FILE_PATH" ]; then
+            FILE_COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
+            cat "$FILE_PATH"
+          else
             echo "package.json file doesn't exist"
-            echo "PREV_VERSION=$FILE_PATH" >> $GITHUB_ENV
-            return 0
           fi
-
-          FILE_COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
-
-          cat $FILE_PATH
 
           echo "FILE_PATH: $FILE_PATH"
           echo "FILE_COMMIT_HASH: $FILE_COMMIT_HASH"
