@@ -55,7 +55,7 @@ jobs:
           echo "PREV_VERSION: $PREV_VERSION"
 
           if [[ "$CUR_VERSION" == "$PREV_VERSION" ]]; then
-            echo "Error: Current package.json version is the same as the previous version."
+            echo "Error: Current package.json version is the same as the previous version"
             exit 1
           fi
 
