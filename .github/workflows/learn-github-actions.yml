@@ -42,7 +42,8 @@ jobs:
           echo "HEAD_REF: $HEAD_REF"
           git fetch origin "$HEAD_REF"
           # HEAD_REF, HAED가 병합된 커밋 해쉬로 변경됨
-          git checkout "$HEAD_REF"@{1}
+          git checkout "$HEAD_REF"
+          git ls-remote
 
       - name: Get file in Head branch
         env:
