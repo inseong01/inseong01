@@ -21,16 +21,18 @@ jobs:
       - name: Get file in Head branch
         run: |
           FILE_PATH=$(find . -type f -name "package.json")
-          NEW_PATH="$(dirname "$FILE_PATH")/head_package.json"
-          mv "$FILE_PATH" ""$NEW_PATH"" 
+          # NEW_PATH="$(dirname "$FILE_PATH")/head_package.json"
+          # mv "$FILE_PATH" ""$NEW_PATH"" 
 
-          COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
+          FILE_COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
 
-          cat $NEW_PATH
+          cat $FILE_PATH
 
-          echo "FILE_PATH: $NEW_PATH"
-          echo "FILE_PATH HASH: $COMMIT_HASH"
-          echo "HEAD_PACKAGE_JSON_PATH=$NEW_PATH" >> $GITHUB_ENV
+          echo "FILE_PATH: $FILE_PATH"
+          echo "FILE_COMMIT_HASH: $FILE_COMMIT_HASH"
+          # echo "HEAD_PACKAGE_JSON_PATH=$NEW_PATH"
+          echo "CUR_VERSION=$(jq -r '.version' $FILE_PATH)" >> $GITHUB_ENV 
+
           echo "Succeeded"
 
       - name: Checkout Base
@@ -41,22 +43,22 @@ jobs:
       - name: Get file in Base branch
         run: |
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
-          NEW_PATH="$(dirname "$FILE_PATH")/base_package.json"
-          mv "$FILE_PATH" ""$NEW_PATH"" 
+          # NEW_PATH="$(dirname "$FILE_PATH")/base_package.json"
+          # mv "$FILE_PATH" ""$NEW_PATH"" 
 
-          COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
+          FILE_COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
 
-          cat $NEW_PATH
+          cat $FILE_PATH
 
-          echo "FILE_PATH: $NEW_PATH"
-          echo "FILE_PATH HASH: $COMMIT_HASH"
-          echo "BASE_PACKAGE_JSON_PATH=$NEW_PATH" >> $GITHUB_ENV
+          echo "FILE_PATH: $FILE_PATH"
+          echo "FILE_COMMIT_HASH: $FILE_COMMIT_HASH"
+          # echo "BASE_PACKAGE_JSON_PATH=$NEW_PATH"
+          echo "PREV_VERSION=$(jq -r '.version' $FILE_PATH)" >> $GITHUB_ENV
+
+          echo "Succeeded"
 
       - name: Compare file version
         run: |
-          PREV_VERSION=$(jq -r '.version' $BASE_PACKAGE_JSON_PATH)
-          CUR_VERSION=$(jq -r '.version' $HEAD_PACKAGE_JSON_PATH)
-
           echo "CUR_VERSION: $CUR_VERSION"
           echo "PREV_VERSION: $PREV_VERSION"
 
