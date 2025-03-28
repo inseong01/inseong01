@@ -3,50 +3,23 @@ name: Check package version
 run-name: ${{github.repository}} is running
 
 on:
+  push:
+    branches:
+      - 'second-action'
+
   pull_request:
     branches:
       - 'test2'
 
 jobs:
-  check-package-version:
-    if: github.repository == 'inseong01/inseong01'
+  get-current-file:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
-
     steps:
-      - name: Use actions/checkout@v3
+      - name: Run actions/checkout@v3
         uses: actions/checkout@v3
 
-      - name: Checkout Base
-        env:
-          BASE_REF: ${{ github.base_ref }} # 기준 브랜치
-        run: |
-          echo "BASE_REF: $BASE_REF"
-          # git fetch origin "$BASE_REF"
-          git switch "$BASE_REF"
-
-      - name: Get file in Base branch
-        run: |
-          FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
-          COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
-
-          echo "FILE_PATH: $FILE_PATH"
-          echo "FILE_PATH HASH: $COMMIT_HASH"
-          echo "BASE_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
-
-      - name: Checkout HEAD
-        env:
-          HEAD_REF: ${{ github.head_ref }}
-        run: |
-          echo "HEAD_REF: $HEAD_REF"
-          git fetch origin "$HEAD_REF"
-          # HEAD_REF, HAED가 병합된 커밋 해쉬로 변경됨
-          git checkout "$HEAD_REF"
-          git branch
-
       - name: Get file in Head branch
-        env:
-          HEAD_REF: ${{ github.head_ref }}
-          SHA: ${{ github.sha }}
         run: |
           FILE_PATH=$(find . -type f -name "package.json")
           COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
@@ -56,7 +29,31 @@ jobs:
           echo "HEAD_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
           echo "Succeeded"
 
-          git ls-remote
+  check-package-version:
+    if: github.repository == 'inseong01/inseong01'
+    runs-on: ubuntu-latest
+    needs: get-current-file
+
+    steps:
+      - name: Run actions/checkout@v3
+        uses: actions/checkout@v3
+
+      - name: Checkout Base
+        env:
+          BASE_REF: ${{ github.base_ref }} # 기준 브랜치
+        run: |
+          echo "BASE_REF: $BASE_REF"
+          git fetch origin "$BASE_REF"
+          git checkout "$BASE_REF"
+
+      - name: Get file in Base branch
+        run: |
+          FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
+          COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
+
+          echo "FILE_PATH: $FILE_PATH"
+          echo "FILE_PATH HASH: $COMMIT_HASH"
+          echo "BASE_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
 
       - name: Compare file version
         run: |
