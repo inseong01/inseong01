@@ -22,16 +22,9 @@ jobs:
           HEAD_REF: ${{ github.head_ref }}
         run: |
           echo "HEAD_REF: $HEAD_REF"
-          echo "github.ref: ${{ github.ref }}"
           git checkout "$HEAD_REF"
 
-          FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
-
-          if [ -z "$FILE_PATH" ]; then
-          echo "File doesn't exist"
-          exit 1
-          fi
-
+          FILE_PATH=$(find . -type f -name "package.json")
           COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
 
           echo "Current Branch: ${{ github.ref_name }}"
