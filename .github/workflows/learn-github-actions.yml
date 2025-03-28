@@ -23,7 +23,7 @@ jobs:
           FILE_PATH=$(find . -type f -name "package.json")
           COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
 
-          cat FILE_PATH
+          cat "$FILE_PATH"
 
           echo "FILE_PATH: $FILE_PATH"
           echo "FILE_PATH HASH: $COMMIT_HASH"
@@ -40,7 +40,7 @@ jobs:
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
           COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
 
-          cat FILE_PATH
+          cat "$FILE_PATH"
 
           echo "FILE_PATH: $FILE_PATH"
           echo "FILE_PATH HASH: $COMMIT_HASH"
