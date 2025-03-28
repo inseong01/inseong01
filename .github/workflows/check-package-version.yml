@@ -40,6 +40,12 @@ jobs:
         run: |
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
 
+          if [ -z "$FILE_PATH" ]; then
+            echo "package.json file doesn't exist"
+            echo "PREV_VERSION=$FILE_PATH" >> $GITHUB_ENV
+            return 0
+          fi
+
           FILE_COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
 
           cat $FILE_PATH
@@ -53,6 +59,11 @@ jobs:
         run: |
           echo "CUR_VERSION: $CUR_VERSION"
           echo "PREV_VERSION: $PREV_VERSION"
+
+          if [ -z "$PREV_VERSION" ]; then
+            echo 'This project might be initialized'
+            exit 0
+          fi
 
           if [[ "$CUR_VERSION" == "$PREV_VERSION" ]]; then
             echo "Error: Current package.json version is the same as the previous version"
