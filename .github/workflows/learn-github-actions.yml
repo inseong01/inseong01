@@ -20,9 +20,6 @@ jobs:
           sparse-checkout: .
 
       - name: Get file in Head branch
-        env:
-          HEAD_REF: ${{ github.head_ref }}
-          SHA: ${{ github.sha }}
         run: |
           FILE_PATH=$(find . -type f -name "package.json")
           COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
@@ -31,8 +28,6 @@ jobs:
           echo "FILE_PATH HASH: $COMMIT_HASH"
           echo "HEAD_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
           echo "Succeeded"
-
-          git ls-remote
 
       - name: Checkout Base
         uses: actions/checkout@v3
@@ -53,6 +48,9 @@ jobs:
         run: |
           PREV_VERSION=$(jq -r '.version' $BASE_PACKAGE_JSON_PATH)
           CUR_VERSION=$(jq -r '.version' $HEAD_PACKAGE_JSON_PATH)
+
+          cat $BASE_PACKAGE_JSON_PATH
+          cat $HEAD_PACKAGE_JSON_PATH
 
           echo "CUR_VERSION: $CUR_VERSION"
           echo "PREV_VERSION: $PREV_VERSION"
