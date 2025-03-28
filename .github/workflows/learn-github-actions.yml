@@ -20,10 +20,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           HEAD_REF: ${{ github.head_ref }}
+          SHA: ${{ github.sha }}
         run: |
           echo "HEAD_REF: $HEAD_REF"
           git fetch origin "$HEAD_REF"
-          git checkout "$HEAD_REF"
+          git checkout "$SHA"
 
           FILE_PATH=$(find . -type f -name "package.json")
           COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
