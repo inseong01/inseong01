@@ -24,7 +24,7 @@ jobs:
           cp "$FILE_PATH" head_package.json 
           COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
 
-          cat $FILE_PATH
+          cat head_package.json
 
           echo "FILE_PATH: $FILE_PATH"
           echo "FILE_PATH HASH: $COMMIT_HASH"
@@ -39,13 +39,14 @@ jobs:
       - name: Get file in Base branch
         run: |
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
+          cp "$FILE_PATH" base_package.json 
           COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
 
-          cat $FILE_PATH
+          cat base_package.json
 
           echo "FILE_PATH: $FILE_PATH"
           echo "FILE_PATH HASH: $COMMIT_HASH"
-          echo "BASE_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
+          echo "BASE_PACKAGE_JSON_PATH=base_package.json" >> $GITHUB_ENV
 
       - name: Compare file version
         run: |
