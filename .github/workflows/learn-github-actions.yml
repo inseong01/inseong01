@@ -22,12 +22,12 @@ jobs:
           HEAD_REF: ${{ github.head_ref }}
         run: |
           echo "HEAD_REF: $HEAD_REF"
+          git fetch origin "$HEAD_REF"
           git checkout "$HEAD_REF"
 
           FILE_PATH=$(find . -type f -name "package.json")
           COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
 
-          echo "Current Branch: ${{ github.ref_name }}"
           echo "FILE_PATH: $FILE_PATH"
           echo "FILE_PATH HASH: $COMMIT_HASH"
           echo "HEAD_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
