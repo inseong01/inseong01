@@ -23,12 +23,15 @@ jobs:
           FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
 
           if [ -z "$FILE_PATH" ]; then
-            echo "File doesn't exist"
-            exit 1
+          echo "File doesn't exist"
+          exit 1
           fi
+
+          COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
 
           echo "Current Branch: ${{ github.ref_name }}"
           echo "FILE_PATH: $FILE_PATH"
+          echo "FILE_PATH HASH: $COMMIT_HASH"
           echo "HEAD_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
           echo "Succeeded"
 
@@ -37,20 +40,30 @@ jobs:
           BASE_REF: ${{ github.base_ref }} # 기준 브랜치
         run: |
           echo "BASE_REF: $BASE_REF"
-
           git fetch origin "$BASE_REF"
-          git show "$BASE_REF":package.json > package.base.json
+          git checkout "$BASE_REF"
 
-          echo "Current Branch: ${{ github.ref_name }}"
-          echo "BASE_PACKAGE_JSON_PATH=package.base.json" >> $GITHUB_ENV
+          FILE_PATH=$(find . -type f -name "package.json" | head -n 1)
+          COMMIT_HASH=$(git log -n 1 --pretty=format:%H -- "$FILE_PATH")
+
+          # git show "$BASE_REF":package.json > package.base.json
+
+          echo "FILE_PATH: $FILE_PATH"
+          echo "FILE_PATH HASH: $COMMIT_HASH"
+          echo "BASE_PACKAGE_JSON_PATH=$FILE_PATH" >> $GITHUB_ENV
 
       - name: Compare file version
         run: |
-          CUR_VERSION=$(jq -r '.version' $BASE_PACKAGE_JSON_PATH)
-          PREV_VERSION=$(jq -r '.version' $HEAD_PACKAGE_JSON_PATH)
+          PREV_VERSION=$(jq -r '.version' $BASE_PACKAGE_JSON_PATH)
+          CUR_VERSION=$(jq -r '.version' $HEAD_PACKAGE_JSON_PATH)
 
           echo "CUR_VERSION: $CUR_VERSION"
           echo "PREV_VERSION: $PREV_VERSION"
+
+          if [[ "$CUR_VERSION" == "$PREV_VERSION" ]]; then
+            echo "Error: Current package.json version is the same as the previous version."
+            exit 1
+          fi
 
           if  [[ "$(printf '%s\n%s' "$PREV_VERSION" "$CUR_VERSION" | sort -V | head -n 1 )" == "$CUR_VERSION" ]]; then
             echo "Error: Check current package.json version"
