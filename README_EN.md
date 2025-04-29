@@ -6,7 +6,7 @@
   <p align="center"> 
   | <a href="README.md"><span>KR</span></a>
   | <a href="README_EN.md"><span>EN</span></a> | 
-  </p> 
+  </p>
 
   <h4 align="left">My Projects</h4>
     <table align="center">
@@ -22,12 +22,12 @@
         </tr> 
         <tr>
             <td>
-                <a href="https://github.com/inseong01/chatBot">Chatbot</a> 
-                - One-on-One Admin Chat and Chatbot Service Using Supabase
+                <a href="https://github.com/inseong01/landing-page">Landing page</a>
+                - Promotional Page for Projects Participated in within the GitHub Repository
             </td>
             <td>
-                <a href="https://github.com/inseong01/typing-practice">Typing practice</a> 
-                - Practice typing with music you select from the NAVER VIBE TOP100 chart
+                <a href="https://github.com/inseong01/chatBot">Chatbot</a> 
+                - One-on-One Admin Chat and Chatbot Service Using Supabase
             </td>
         </tr>
         <tr>
@@ -36,8 +36,9 @@
                 - Session identifier authentication login feature using Redis and Firebase
             </td>
             <td>
-                <a href=""></a>
-            </td>
+                <a href="https://github.com/inseong01/typing-practice">Typing practice</a> 
+                - Practice typing with music you select from the NAVER VIBE TOP100 chart
+            </td>            
         </tr>
     </table>
 <div>
