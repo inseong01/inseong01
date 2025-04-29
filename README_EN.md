@@ -23,7 +23,7 @@
         <tr>
             <td>
                 <a href="https://github.com/inseong01/landing-page">Landing page</a>
-                - Promotional Page for Projects Participated in within the GitHub Repository
+                - Promotional Page for Projects
             </td>
             <td>
                 <a href="https://github.com/inseong01/chatBot">Chatbot</a> 

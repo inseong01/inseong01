@@ -23,7 +23,7 @@
     <tr> 
       <td> 
         <a href="https://github.com/inseong01/landing-page" target="_blank">Landing page</a> 
-        - GitHub 저장소 내에서 참여한 프로젝트 프로모션 페이지
+        - 프로젝트 프로모션 페이지
       </td> 
       <td>
         <a href="https://github.com/inseong01/chatBot" target="_blank">Chatbot</a>
