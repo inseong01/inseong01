@@ -7,7 +7,7 @@
 
   <p>
     🔧 I’m currently refactoring the 
-    <a href="https://github.com/inseong01/QR-order-customer" target="_blank">Project (1)</a>.
+    <a href="https://github.com/inseong01/chatBot" target="_blank">Project (4)</a>.
   </p>
 
   <p align="center"> 
