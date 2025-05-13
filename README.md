@@ -37,12 +37,10 @@
     </tr> 
     <tr> 
       <td>
-        <a href="https://github.com/inseong01/login" target="_blank">5. Login</a> 
-        - Redis와 Firebase를 활용한 세션 식별자 인증 로그인 기능
+        <a href="https://github.com/inseong01/smart-commit-bot" target="_blank">5. Smart commit bot</a> 
+        - Gemini를 활용한 작업 내역 요약 및 푸시 자동화 스크립트
       </td> 
       <td>
-        <a href="https://github.com/inseong01/typing-practice" target="_blank">6. Typing Practice</a> 
-        - 네이버 VIBE TOP100 차트에서 본인이 선택한 음악으로 타자 연습
       </td>
     </tr> 
   </table>

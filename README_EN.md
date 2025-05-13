@@ -42,12 +42,10 @@
         </tr>
         <tr>
             <td>
-                <a href="https://github.com/inseong01/login">5. Login</a> 
-                - Session identifier authentication login feature using Redis and Firebase
+                <a href="https://github.com/inseong01/smart-commit-bot">5. Smart commit bot</a> 
+                - Script for Automating Work Summary and Push using Gemini
             </td>
             <td>
-                <a href="https://github.com/inseong01/typing-practice">6. Typing practice</a> 
-                - Practice typing with music you select from the NAVER VIBE TOP100 chart
             </td>            
         </tr>
     </table>
