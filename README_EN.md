@@ -6,8 +6,7 @@
   <h3>Hi there, I'm inseong 👋</h3>
 
   <p>
-    🔧 I’m currently refactoring the 
-    <a href="https://github.com/inseong01/chatBot" target="_blank">Project (4)</a>.
+    🔧 I’m working on an admin dashboard for the landing page.
   </p>
 
   <p align="center"> 
@@ -16,7 +15,7 @@
   </p>
 
   <h4 align="left">Stack</h4>
-  <p align="left">JavaScript, TypeScript, React, Next</p>
+  <p align="left">JavaScript, TypeScript, React, Next, Supabase</p>
 
   <h4 align="left">My Projects</h4>
     <table align="center">
@@ -27,7 +26,7 @@
             </td> 
             <td>
                 <a href="https://github.com/inseong01/QR-order-admin">2. QR-order-admin</a> 
-                - Administrator service for handling QR orders and customizing stores for users.
+                - Administrator service for handling QR orders and customizing stores for users
             </td> 
         </tr> 
         <tr>
@@ -36,8 +35,8 @@
                 - Promotional Page for Projects
             </td>
             <td>
-                <a href="https://github.com/inseong01/chatBot">4. Chatbot</a> 
-                - One-on-One Admin Chat and Chatbot Service Using Supabase
+                <a href="https://github.com/inseong01/supabase-realtime-chat">4. Realtime chat</a> 
+                - One-on-One Admin Chat Service Using Supabase Realtime product
             </td>
         </tr>
         <tr>

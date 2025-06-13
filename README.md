@@ -3,7 +3,7 @@
     <img src="./src/WeTransfer.gif" width="100"> 
   </a>
   <h3>안녕하세요, 저는 인성이예요 👋</h3> 
-  <p>🔧 지금은 <a href="https://github.com/inseong01/chatBot" target="_blank">프로젝트(4)</a>를 리팩토링 하고 있어요.</p>
+  <p>🔧 지금은 랜딩 페이지 관리자 대시보드를 구축하고 있어요.</p>
 
   <p align="center"> 
     <a href="README.md"><span>KR</span></a>
@@ -11,7 +11,7 @@
   </p> 
   
   <h4 align="left">스택</h4>
-  <p align="left">JavaScript, TypeScript, React, Next</p>
+  <p align="left">JavaScript, TypeScript, React, Next, Supabase</p>
   
   <h4 align="left">프로젝트 목록</h4>
   <table align="center"> 
@@ -31,8 +31,8 @@
         - 프로젝트 프로모션 페이지
       </td> 
       <td>
-        <a href="https://github.com/inseong01/chatBot" target="_blank">4. Chatbot</a>
-         - Supabase를 활용한 관리자 일대일 채팅 겸 챗봇 서비스
+        <a href="https://github.com/inseong01/supabase-realtime-chat" target="_blank">4. Realtime chat</a>
+         - Supabase Realtime 기능을 활용한 관리자 일대일 채팅 서비스
       </td>  
     </tr> 
     <tr> 
