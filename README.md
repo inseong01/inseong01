@@ -3,7 +3,7 @@
     <img src="./src/WeTransfer.gif" width="100"> 
   </a>
   <h3>안녕하세요, 저는 인성이예요 👋</h3> 
-  <p>🔧 지금은 랜딩 페이지 관리자 대시보드를 구축하고 있어요.</p>
+  <p>🔧 지금은 <a href="https://github.com/inseong01/landing-page-admin-dashboard">랜딩 페이지 관리자 대시보드</a>를 구축하고 있어요.</p>
 
   <p align="center"> 
     <a href="README.md"><span>KR</span></a>

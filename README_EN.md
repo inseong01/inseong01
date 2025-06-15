@@ -6,7 +6,7 @@
   <h3>Hi there, I'm inseong 👋</h3>
 
   <p>
-    🔧 I’m working on an admin dashboard for the landing page.
+    🔧 I’m working on an <a href="https://github.com/inseong01/landing-page-admin-dashboard">admin dashboard</a> for the landing page.
   </p>
 
   <p align="center"> 
