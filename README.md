@@ -3,7 +3,7 @@
     <img src="./src/WeTransfer.gif" width="100"> 
   </a>
   <h3>안녕하세요, 저는 인성이예요 👋</h3> 
-  <p>🔧 지금은 <a href="https://github.com/inseong01/landing-page-admin-dashboard">랜딩 페이지 관리자 대시보드</a>를 구축하고 있어요.</p>
+  <p>🔧 지금은 NodeJS 공부와 <a href="https://github.com/inseong01/QR-order-admin">프로젝트(2)</a>를 리팩토링을 병행하고 있어요.</p>
 
   <p align="center"> 
     <a href="README.md"><span>KR</span></a>
@@ -31,8 +31,8 @@
         - 프로젝트 프로모션 페이지
       </td> 
       <td>
-        <a href="https://github.com/inseong01/supabase-realtime-chat" target="_blank">4. Realtime chat</a>
-         - Supabase Realtime 기능을 활용한 관리자 일대일 채팅 서비스
+        <a href="https://github.com/inseong01/landing-page-admin-dashboard" target="_blank">4. landing page admin</a>
+         - Supabase auth, realtime 기능을 활용한 랜딩 페이지 관리자 대시보드
       </td>  
     </tr> 
     <tr> 
@@ -45,23 +45,3 @@
     </tr> 
   </table>
 </div>
-
-<!--
-**inseong01/inseong01** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
-
-- badges
-https://github.com/Ileriayo/markdown-badges
-- most used languages
-https://github.com/anuraghazra/github-readme-stats/blob/master/docs/readme_kr.md
--->

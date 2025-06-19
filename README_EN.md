@@ -6,7 +6,7 @@
   <h3>Hi there, I'm inseong 👋</h3>
 
   <p>
-    🔧 I’m working on an <a href="https://github.com/inseong01/landing-page-admin-dashboard">admin dashboard</a> for the landing page.
+    🔧 I'm currently studying Node.js while also refactoring <a href="https://github.com/inseong01/QR-order-admin">this project (2)</a>.
   </p>
 
   <p align="center"> 
@@ -35,8 +35,8 @@
                 - Promotional Page for Projects
             </td>
             <td>
-                <a href="https://github.com/inseong01/supabase-realtime-chat">4. Realtime chat</a> 
-                - One-on-One Admin Chat Service Using Supabase Realtime product
+                <a href="https://github.com/inseong01/landing-page-admin-dashboard">4. landing page admin dashboard</a> 
+                - Landing page admin dashboard using Supabase Auth and Realtime features
             </td>
         </tr>
         <tr>
