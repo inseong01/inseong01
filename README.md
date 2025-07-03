@@ -3,7 +3,7 @@
     <img src="./src/WeTransfer.gif" width="100"> 
   </a>
   <h3>안녕하세요, 저는 인성이예요 👋</h3> 
-  <p>🔧 지금은 NodeJS 공부와 <a href="https://github.com/inseong01/QR-order-admin">프로젝트(2)</a>를 리팩토링을 병행하고 있어요.</p>
+  <p>🔧 지금은 NodeJS API 개발 공부와 <a href="https://github.com/inseong01/QR-order-admin">프로젝트(2)</a>를 리팩토링을 병행하고 있어요.</p>
 
   <p align="center"> 
     <a href="README.md"><span>KR</span></a>

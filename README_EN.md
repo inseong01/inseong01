@@ -6,7 +6,7 @@
   <h3>Hi there, I'm inseong 👋</h3>
 
   <p>
-    🔧 I'm currently studying Node.js while also refactoring <a href="https://github.com/inseong01/QR-order-admin">this project (2)</a>.
+    🔧 I'm currently studying Node.js API development while also refactoring <a href="https://github.com/inseong01/QR-order-admin">this project (2)</a>.
   </p>
 
   <p align="center"> 
