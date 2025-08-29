@@ -6,7 +6,7 @@
   <h3>Hi there, I'm inseong 👋</h3>
 
   <p>
-    🔧 I'm currently testing the refactoring of <a href="https://github.com/inseong01/QR-order-admin">project(2)</a>.
+    🔧 I'm currently optimizing <a href="https://github.com/inseong01/QR-order-admin">project(2)</a>.
   </p>
 
   <p align="center"> 
