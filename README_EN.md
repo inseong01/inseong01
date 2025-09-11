@@ -6,7 +6,7 @@
   <h3>Hi there, I'm inseong 👋</h3>
 
   <p>
-    🔧 I'm currently optimizing <a href="https://github.com/inseong01/QR-order-admin">project(2)</a>.
+    🔧 I'm currently working on enhancing the features <a href="https://github.com/inseong01/QR-order-admin">project(2)</a>.
   </p>
 
   <p align="center"> 
@@ -15,7 +15,7 @@
   </p>
 
   <h4 align="left">Stack</h4>
-  <p align="left">JavaScript, TypeScript, React, Next, Supabase</p>
+  <p align="left">JavaScript, TypeScript, React, Next, Supabase, React Query</p>
 
   <h4 align="left">My Projects</h4>
     <table align="center">
