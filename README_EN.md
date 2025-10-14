@@ -6,7 +6,7 @@
   <h3>Hi there, I'm inseong 👋</h3>
 
   <p>
-    🔧 I'm currently planning a new project.
+    📖 I'm currently participating in the pre-course of Wooahan Tech Course.
   </p>
 
   <p align="center"> 
