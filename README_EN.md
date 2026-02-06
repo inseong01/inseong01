@@ -6,7 +6,7 @@
   <h3>Hi there, I'm inseong 👋</h3>
 
   <p>
-    📖 I'm currently studying MoQ.
+    📖 I'm working on a brief news project of my own.
   </p>
 
   <p align="center"> 
